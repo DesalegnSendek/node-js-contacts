@@ -9,6 +9,8 @@ app.use("/api/contacts", require('./routes/contactRoutes'));
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
 });
+
+
 // const bodyParser = require("body-parser");
 // const cors = require("cors");
 // const mongoose = require("mongoose"); 
