@@ -8,33 +8,41 @@ const getContacts = (req, res) => {
     };
 
 
-// //@description get single contact
-// //@route POST /api/contacts
-// //@access public
+//@description get single contact
+//@route POST /api/contacts
+//@access public
 const getaContact = (req, res) =>{
     // res.send("<h1>get all contacts</h1>");
     res.status(200).json({message: `get contact for ${req.params.id}`});
 };
 
-// //@description create contacts
-// //@route POST /api/contacts
-// //@access public
+//@description create contacts
+//@route POST /api/contacts
+//@access public
 const createContact = (req, res) =>{
     // res.send("<h1>get all contacts</h1>");
+    console.log("Request body is ", req.body);
+    const {name, email, phone} = req.body;
+    if(!name || !email || !phone){
+       throw new error(res.status(400).json({message: "name, email and phone are required"}));
+        return;
+    }else{
+        res.status(200).json({message: `created contact for ${name}`});
+    }
     res.status(200).json({message: "create contacts"});
 };
 
-// //@description update an single contact
-// //@route PUT /api/contacts/:id
-// //@access public
+//@description update an single contact
+//@route PUT /api/contacts/:id
+//@access public
 const UpdateContact = (req, res) =>{
     // res.send("<h1>get all contacts</h1>");
     res.status(200).json({message: `update contact for ${req.params.id}`});
 };
 
-// //@description delete a specific contact
-// //@route GET /api/contacts/:id
-// //@access public
+//@description delete a specific contact
+//@route GET /api/contacts/:id
+//@access public
 const deleteContact = (req, res) =>{
     // res.send("<h1>get all contacts</h1>");
     res.status(200).json({message: `delete contact for ${req.params.id}`});
